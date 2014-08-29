@@ -40,7 +40,7 @@ runTest = (file, cond, opts, done) ->
     expect(err).to.not.exist
     expectFilesAreEqual(generatedFile, expectedFile, done)
 
-describe 'refbuster', ->
+describe 'html-bust', ->
 
   beforeEach ->
     rimraf.sync(generatedDir)
