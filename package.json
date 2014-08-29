@@ -1,8 +1,8 @@
 {
   "name": "html-bust",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Cache-busts URLs in HTML files",
-  "main": "index.js",
+  "main": "lib/index.js",
   "author": "Tiago Quelhas <tiagoq@gmail.com>",
   "license": "MIT",
   "keywords": [
@@ -15,7 +15,7 @@
     "url": "http://github.com/tjgq/html-bust.git"
   },
   "scripts": {
-    "build": "coffee -c index.coffee",
+    "prepublish": "coffee -o lib -c index.coffee",
     "test": "mocha test"
   },
   "dependencies": {
