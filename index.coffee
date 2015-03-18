@@ -53,12 +53,12 @@ class Buster
   # Find all eligible assets in the HTML document.
   findAssets: ($) ->
     _.uniq _.compact _.flatten _.map @opts.tagTypes, (tag) =>
-        _.map $(tag), (el) =>
-          attr = targetAttribute[tag]
-          if attr?
-            val = $(el).attr(attr)
-            if val? and @isEligiblePath(val)
-              val
+      _.map $(tag), (el) =>
+        attr = targetAttribute[tag]
+        if attr?
+          val = $(el).attr(attr)
+          if val? and @isEligiblePath(val)
+            val
 
   # Compute a file's digest.
   digestFile: (path, done) ->
