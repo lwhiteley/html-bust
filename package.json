@@ -1,6 +1,6 @@
 {
   "name": "html-bust",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Cache-busts URLs in HTML files",
   "main": "lib/index.js",
   "author": "Tiago Quelhas <tiagoq@gmail.com>",

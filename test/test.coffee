@@ -62,15 +62,20 @@ describe 'html-bust', ->
     it 'should replace some assets', (done) ->
       runTest('hint-all', 'custom-tags', tagTypes: ['script', 'link'], done)
 
-  describe 'custom algorithm', ->
+  describe 'custom hash algorithm', ->
 
     it 'should replace all assets', (done) ->
       runTest('hint-all', 'custom-algo', hashAlgorithm: 'md5', done)
 
-  describe 'custom length', ->
+  describe 'custom hash length', ->
 
     it 'should replace all assets', (done) ->
       runTest('hint-all', 'custom-length', hashLength: 4, done)
+
+  describe 'custom string', ->
+
+    it 'should replace all assets', (done) ->
+      runTest('hint-all', 'custom-string', mode: 'string', fixedString: 'bazinga', done)
 
   describe 'no hint', ->
 

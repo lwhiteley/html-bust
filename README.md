@@ -24,10 +24,18 @@ Available options:
 
   If set to a string, only URLs ending with that string are busted. The string is removed from the processed HTML file. If `null`, URLs are busted inconditionally.
 
+* mode (default: `hash`)
+
+  One of `hash` or `string`. In `hash` mode, references are busted with a hash of the respective file contents, according to the `hashAlgorithm` and `hashString` options. In `string` mode, references are busted with the fixed string given by the `fixedString` option.
+
 * hashAlgorithm (default: `'sha1'`)
 
-  The hash algorithm to use. Check the documentation for `crypto.createHash`.
+  The hash algorithm to use in `hash` mode. Check the documentation for `crypto.createHash`.
 
 * hashLength (default: `8`)
 
-  The number of characters to use as the cache-busting string.
+  The number of hash characters to use in `hash` mode as the cache-busting string.
+
+* fixedString (default: `''`)
+
+  The fixed string to use in `string` mode.

@@ -20,6 +20,8 @@ targetAttribute =
 defaultOptions =
   tagTypes: [ 'img', 'script', 'link' ]
   urlHint: '?bust'
+  mode: 'hash'
+  fixedString: ''
   hashAlgorithm: 'sha1'
   hashLength: 8
 
@@ -73,9 +75,14 @@ class Buster
   transformAsset: (dir, asset, done) ->
     relativePath = if @opts.urlHint? then @removeHint(asset) else asset
     absolutePath = path.join(dir, relativePath)
-    @digestFile absolutePath, (err, hash) =>
-      if err? then return done(err)
-      done(null, "#{relativePath}?#{hash}")
+    switch @opts.mode
+      when 'string'
+        fixedString = @opts.fixedString
+        done(null, "#{relativePath}?#{fixedString}")
+      when 'hash'
+        @digestFile absolutePath, (err, hash) =>
+          if err? then return done(err)
+          done(null, "#{relativePath}?#{hash}")
 
   # Replace an asset by its cache-busted version.
   replaceAsset: (dir, html, asset, done) ->
