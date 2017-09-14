@@ -83,11 +83,11 @@ describe 'html-bust', ->
       customStringFunc = -> "bazinga"
       runTest('hint-all', 'custom-string', mode: 'custom', customFunction: customStringFunc, done)
 
-  describe 'custom function returns non string', ->
+    describe 'when function returns non string', ->
 
-    it 'should replace assets with no query string', (done) ->
-      customStringFunc = -> 3
-      runTest('hint-all', 'custom-func-no-str', mode: 'custom', customFunction: customStringFunc, done)
+      it 'should replace assets with no query string', (done) ->
+        customStringFunc = -> 3
+        runTest('hint-all', 'custom-func-no-str', mode: 'custom', customFunction: customStringFunc, done)
 
   describe 'no hint', ->
 
