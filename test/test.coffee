@@ -85,7 +85,7 @@ describe 'html-bust', ->
 
   describe 'custom function returns non string', ->
 
-    it 'should not replace all assets', (done) ->
+    it 'should replace assets with no query string', (done) ->
       customStringFunc = -> 3
       runTest('hint-all', 'custom-func-no-str', mode: 'custom', customFunction: customStringFunc, done)
 
