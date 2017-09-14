@@ -1,5 +1,7 @@
 # html-bust
 
+[![npm version](https://badge.fury.io/js/html-bust.svg)](https://badge.fury.io/js/html-bust)
+
 Cache-busts URLs in HTML files by appending a query string with a hash of the referenced resources. Similar to [grunt-cache-bust](http://www.npmjs.org/package/grunt-cache-bust), but runs on its own.
 
 Because parsing and re-marshaling HTML documents is brittle, URLs are replaced through regular expressions. As a way to mitigate against unwanted substitutions, URLs that are to be busted can be marked with a special suffix.
