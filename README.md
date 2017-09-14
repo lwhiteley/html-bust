@@ -26,7 +26,7 @@ Available options:
 
 * mode (default: `hash`)
 
-  One of `hash` or `string`. In `hash` mode, references are busted with a hash of the respective file contents, according to the `hashAlgorithm` and `hashString` options. In `string` mode, references are busted with the fixed string given by the `fixedString` option.
+  One of `hash` or `string` or `custom`. In `hash` mode, references are busted with a hash of the respective file contents, according to the `hashAlgorithm` and `hashString` options. In `string` mode, references are busted with the fixed string given by the `fixedString` option.
 
 * hashAlgorithm (default: `'sha1'`)
 
@@ -39,3 +39,7 @@ Available options:
 * fixedString (default: `''`)
 
   The fixed string to use in `string` mode.
+
+* customFunction (default: `() => ''`)
+
+  The function to use in `custom` mode. Please ensure a string is returned by this function. If no string is returned then no replacements will be made.

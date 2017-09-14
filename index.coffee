@@ -22,6 +22,7 @@ defaultOptions =
   urlHint: '?bust'
   mode: 'hash'
   fixedString: ''
+  customFunction: -> ''
   hashAlgorithm: 'sha1'
   hashLength: 8
 
@@ -79,6 +80,10 @@ class Buster
       when 'string'
         fixedString = @opts.fixedString
         done(null, "#{relativePath}?#{fixedString}")
+      when 'custom'
+        customString = if _.isFunction(@opts.customFunction) then @opts.customFunction() else ''
+        customString = if _.isString(customString) then "?#{customString}" else ''
+        done(null, "#{relativePath}#{customString}")
       when 'hash'
         @digestFile absolutePath, (err, hash) =>
           if err? then return done(err)

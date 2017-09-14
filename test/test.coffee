@@ -76,6 +76,18 @@ describe 'html-bust', ->
 
     it 'should replace all assets', (done) ->
       runTest('hint-all', 'custom-string', mode: 'string', fixedString: 'bazinga', done)
+  
+  describe 'custom function', ->
+
+    it 'should replace all assets', (done) ->
+      customStringFunc = -> "bazinga"
+      runTest('hint-all', 'custom-string', mode: 'custom', customFunction: customStringFunc, done)
+
+  describe 'custom function returns non string', ->
+
+    it 'should not replace all assets', (done) ->
+      customStringFunc = -> 3
+      runTest('hint-all', 'custom-func-no-str', mode: 'custom', customFunction: customStringFunc, done)
 
   describe 'no hint', ->
 
